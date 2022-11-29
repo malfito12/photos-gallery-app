@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../node_modules//bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="container-login">
+            <div class="col-5">
+                <form id="formulario-login">
+                    <div class="form-group">
+                        <div class="login-input">
+                            <label>Nombre de Usuario</label>
+                            <input class="form-control" type="text" id="user-name" >
+                        </div>
+                        <div class="login-input">
+                            <label>Password</label>
+                            <div class="input-group" id="show_hide_password">
+                                <input class="form-control" type="password" id="user-password" >
+                                <a href="" class="input-group-text"><i class="bi bi-eye-slash-fill"></i></a>
+                            </div>
+                        </div>
+                        <div class="login-input d-grid gap-2">
+                            <button class="btn btn-success" type="submit">Inciar Sesion</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="/jquery/jquery.js"></script>
+<script type="module" src="/views/scripts/indexScripts.js"></script>
+<script src="/bootstrap/bootstrap.bundle.min.js"></script>
+
+</html>
