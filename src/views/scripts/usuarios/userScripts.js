@@ -1,0 +1,20 @@
+$(()=>{
+    $('#register-user').submit((e)=>{
+        e.preventDefault()
+        const data={
+            user_name:$('#user-name').val(),
+            user_email:$('#user-email').val(),
+            user_password:$('#user-password').val(),
+            user_password_repeat:$('#user-password-repeat').val()
+        }
+        $.ajax({
+            url:'/registro-usuario',
+            type:'POST',
+            data:data,
+            success:resp=>{
+                $('#register-user').trigger('reset')
+                console.log(resp)
+            }
+        })
+    })
+})

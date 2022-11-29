@@ -22,6 +22,7 @@ app.use('/styles',express.static(path.join(__dirname,'./views/styles')))
 //ROUTES
 app.use('/',require('./models/indexRouter'))
 app.use('/',require('./models/fotosRouter'))
+app.use('/',require('./models/usersRouter'))
 //SERVER
 
 const puerto = app.get('port')
