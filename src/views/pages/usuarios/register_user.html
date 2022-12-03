@@ -13,34 +13,62 @@
 </head>
 
 <body>
-    <h1 align="center">registro de usuarios</h1>
-    <div align="center">
-        <form id="register-user">
-            <div style="padding: 10px;">
-                <label>nombre de usuario</label>
-                <input type="text" placeholder="nombre de usuario" id="user-name">
+    <div class="container-fluid">
+        <div class="container col-md-4 mt-5">
+            <div class="row">
+                <div>
+                    <h4 align="center" class="text-white">REGISTRO DE USUARIOS</h4>
+                    <form id="register-user">
+                        <div class="p-1">
+                            <label class="form-label text-white-50">Nombre de Usuario</label>
+                            <input class="form-control" type="text" id="user-name" required>
+                        </div>
+                        <div class="p-1">
+                            <label class="form-label text-white-50">Apellido Paterno</label>
+                            <input class="form-control" type="text" id="user-last_nameP" required>
+                        </div>
+                        <div class="p-1">
+                            <label class="form-label text-white-50">Apellido Materno</label>
+                            <input class="form-control" type="text" id="user-last_nameM" required>
+                        </div>
+                        <div class="p-1">
+                            <label class="form-label text-white-50">Nombre Completo</label>
+                            <input class="form-control" type="text" id="user-first_name" required>
+                        </div>
+                        <div class="p-1">
+                            <label class="form-label text-white-50">Correo Electronico</label>
+                            <input type="email" class="form-control" type="text" id="user-email" required>
+                        </div>
+                        <div class="p-1">
+                            <label class="form-label text-white-50">Contraseña</label>
+                            <div class="input-group" id="show_hide_password">
+                                <input class="form-control" type="password" id="user-password" required>
+                                <a href="" class="input-group-text"><i class="bi bi-eye-slash-fill"></i></a>
+                            </div>
+                        </div>
+                        <div class="p-1">
+                            <label class="form-label text-white-50">Repita Contraseña</label>
+                            <div class="input-group" id="show_hide_password_repeat">
+                                <input class="form-control" type="password" id="user-password-repeat" required>
+                                <a href="" class="input-group-text"><i class="bi bi-eye-slash-fill"></i></a>
+                            </div>
+                        </div>
+                        <div class="pt-3 py-1 px-1 d-grid gap-3">
+                            <button type="submit" class="btn btn-success">Registrarte</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- --------------------ALERTAS---------------------------->
+                <div id="alert-register-success" class="alert alert-success mt-2" role="alert">
+                    Usuario Registrado
+                </div>
+                <div id="alert-contraseña" class="alert alert-danger mt-2" role="alert">
+                    Error, Las Contraseña no son iguales
+                </div>
             </div>
-            <div style="padding: 10px;">
 
-                <label>Correo Electronico</label>
-                <input type="text" placeholder="nombre de usuario" id="user-email">
-            </div>
-            <div style="padding: 10px;">
+        </div>
 
-                <label>Contraseña</label>
-                <input type="password" placeholder="nombre de usuario" id="user-password">
-            </div>
-            <div style="padding: 10px;">
-
-                <label>Repita Contraseña</label>
-                <input type="password" placeholder="nombre de usuario" id="user-password-repeat">
-            </div>
-            <div style="padding: 10px;">
-                <button type="submit">registrar</button>
-                <button> <a href="/">cancelar</a> </button>
-            </div>
-
-        </form>
     </div>
 </body>
 <script src="/jquery/jquery.js"></script>

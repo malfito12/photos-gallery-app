@@ -1,6 +1,9 @@
 const mongoose=require('../database/dbConnection')
 var USERSCHEMA={
     user_name:{type:String,index:true},
+    user_last_nameP:{type:String,index:true},
+    user_last_nameM:{type:String,index:true},
+    user_first_name:{type:String,index:true},
     user_email:{type:String,index:true},
     user_password:String,
     user_password_repeat:String,
