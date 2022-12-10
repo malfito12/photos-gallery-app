@@ -1,6 +1,6 @@
 $(() => {
-    $('.login-input').css({padding:'10px'})
-    $('.container-login').css({minHeight: '700px',display:'flex',justifyContent:'center',alignItems:'center'})
+    $('.login-input').css({ padding: '10px' })
+    $('.container-login').css({ minHeight: '700px', display: 'flex', justifyContent: 'center', alignItems: 'center' })
 
     $("#show_hide_password a").on('click', function (event) {
         event.preventDefault();
@@ -15,12 +15,33 @@ $(() => {
         }
     });
 
-    $('#formulario-login').submit('click',(e)=>{
+    $('#formulario-login').submit('click', (e) => {
         e.preventDefault()
-        var user_name=$('#user-name').val()
-        var user_password=$('#user-password').val()
-        console.log({user:user_name,pass:user_password})
-        window.location='/fotos'
+        const data = {
+            user_name: $('#user-name').val(),
+            user_password: $('#user-password').val()
+        }
+        try {
+            $.ajax({
+                url: '/login',
+                type: 'POST',
+                data: data,
+                success: resp => {
+                    if (resp.token) {
+                        localStorage.setItem('token', resp.token)
+                        window.location = '/fotos'
+                    }
+                },
+                error: err => {
+                    // console.log(err)
+                    alert(err.responseJSON.message)
+                }
+            })
+        } catch (error) {
+            console.log(error)
+        }
+        // console.log({user:user_name,pass:user_password})
+        // window.location='/fotos'
     })
 
 })
