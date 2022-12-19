@@ -1,8 +1,8 @@
 const mongoose=require('../database/dbConnection')
 var PHOTOSCHEMA={
-    photo_name:{type:String,index:true},
-    photo_desciption:{type:String,index:true},
-    photo_image:String,
+    image_name:{type:String,index:true},
+    image_description:{type:String,index:true},
+    image_archive:String,
     register_date:String,
 }
 const PHOTO=mongoose.model('photos',PHOTOSCHEMA)

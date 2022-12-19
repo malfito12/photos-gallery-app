@@ -1,10 +1,38 @@
-const controllers={}
+const controllers = {}
+const IMAGE = require('../schemas/fotosSchema')
 
-controllers.indexfotos=async(req,res)=>{
+//-----------VISTAS-------------------------
+controllers.indexfotos = async (req, res) => {
     res.render('pages/fotos/lista_fotos')
 }
-controllers.registroFotos=async(req,res)=>{
+controllers.registroFotos = async (req, res) => {
     res.render('pages/fotos/registrar_foto')
 }
+controllers.getImages=async(req,res)=>{
+    try {
+        const image= await IMAGE.find({})
+        res.status(200).json(image)
+    } catch (error) {
+        console.log(error)   
+    }
+}
 
-module.exports=controllers
+//------------------REGISTROS-----------------------
+controllers.imagesSave = async (req, res) => {
+    const params = req.body
+    params["register_date"] = new Date()
+    try {
+        var image = new IMAGE(params)
+        image.save()
+            .then(() => {
+                res.status(200).json({ message: 'Imagen Guardada' })
+            })
+            .catch(() => {
+                res.status(300).json({ message: 'Error, Imagen no Guardada' })
+            })
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+module.exports = controllers

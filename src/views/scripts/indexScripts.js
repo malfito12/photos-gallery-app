@@ -15,7 +15,8 @@ $(() => {
         }
     });
 
-    $('#formulario-login').submit('click', (e) => {
+    // $('#formulario-login').submit('click', (e) => {
+    $('#formulario-login').on('submit', (e) => {
         e.preventDefault()
         const data = {
             user_name: $('#user-name').val(),

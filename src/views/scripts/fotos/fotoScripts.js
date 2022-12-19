@@ -1,24 +1,53 @@
-$(()=>{
-    const userLogged=localStorage.getItem('token')
-    if(!userLogged){
-        window.location='/'
-    }else{
-        const getUsers=()=>{
+$(() => {
+    const userLogged = localStorage.getItem('token')
+    if (!userLogged) {
+        window.location = '/'
+    } else {
+        //----SCRIPTS DE IMAGES VIEW----
+        const getUsers = () => {
+            // const data = [
+            //     { id: 1, url: 'https://images.unsplash.com/photo-1602685234860-3d38ee425ae8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHw%3D&w=1000&q=80', title: 'paisaje 1', text: 'este es el primer paisaje' },
+            //     { id: 2, url: 'https://images.unsplash.com/photo-1602685234860-3d38ee425ae8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHw%3D&w=1000&q=80', title: 'paisaje 1', text: 'este es el primer paisaje' },
+            //     { id: 3, url: 'https://images.unsplash.com/photo-1602685234860-3d38ee425ae8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHw%3D&w=1000&q=80', title: 'paisaje 1', text: 'este es el primer paisaje' },
+            //     { id: 4, url: 'https://images.unsplash.com/photo-1602685234860-3d38ee425ae8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHw%3D&w=1000&q=80', title: 'paisaje 1', text: 'este es el primer paisaje' },
+            //     { id: 5, url: 'https://images.unsplash.com/photo-1602685234860-3d38ee425ae8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHw%3D&w=1000&q=80', title: 'paisaje 1', text: 'este es el primer paisaje' },
+            //     { id: 6, url: 'https://images.unsplash.com/photo-1602685234860-3d38ee425ae8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHw%3D&w=1000&q=80', title: 'paisaje 1', text: 'este es el primer paisaje' },
+            //     { id: 7, url: 'https://images.unsplash.com/photo-1602685234860-3d38ee425ae8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHw%3D&w=1000&q=80', title: 'paisaje 1', text: 'este es el primer paisaje' },
+            //     { id: 8, url: 'https://images.unsplash.com/photo-1602685234860-3d38ee425ae8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHw%3D&w=1000&q=80', title: 'paisaje 1', text: 'este es el primer paisaje' },
+            // ]
+            // var template1 = ''
+            // for (var i = 0; i < data.length; i++) {
+            //     template1 = template1 + `
+            //     <div class="card m-2 " style="width: 18rem;">
+            //         <img src=${data[i].url} class="card-img-top p-1 " alt="#">
+            //         <div class="card-body">
+            //             <h5 class="card-title">${data[i].title}</h5>
+            //             <p class="card-text">${data[i].text}</p>
+            //             <a href="#" class="btn btn-primary">Go somewhere</a>
+            //         </div>
+            //     </div>
+            //     `
+            // }
+            // $('#imagenes-jquery').html(template1)
             $.ajax({
-                url:'https://jsonplaceholder.typicode.com/users',
-                type:'GET',
-                success:(resp)=>{
-                    var template=''
-                    for(var i=0;i<resp.length;i++){
-                        template=template+`
-                        <tr>
-                            <td>${resp[i].name}</td>
-                            <td>${resp[i].username}</td>
-                            <td>${resp[i].email}</td>
-                        </tr>
+                url: '/get-images',
+                type: 'GET',
+                success: (resp) => {
+                    var template1 = ''
+                    for (var i = 0; i < resp.length; i++) {
+                        template1 = template1 + `
+                            <div class="card m-2 " style="width: 18rem;">
+                                <div style="width:260px;height:200px;">
+                                    <img src=${resp[i].image_archive} class="card-img-top p-1" style="height:100%; width:100%;"  alt="#">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">${resp[i].image_name}</h5>
+                                    <p class="card-text">${resp[i].image_description}</p>
+                                </div>
+                            </div>
                         `
                     }
-                    $('#table-body').html(template)
+                    $('#imagenes-jquery').html(template1)
                 }
             })
         }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="../../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <title>Document</title>
 </head>
+
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
@@ -16,8 +18,30 @@
         </div>
     </nav>
     <div class="container mt-5">
-        <h5 class="text-white text-center">FORMULARIO DE REGISTRO</h5>
-        <input type="file">
+        <h5 class="text-white text-center">FORMULARIO DE IMAGENES</h5>
+        <div class="container col-9 col-md-6">
+            <form id="formulario-image-save">
+                <div class="p-1">
+                    <label class="form-label text-white-50">Nombre de Imagen</label>
+                    <input class="form-control" type="text" id="image-name" required>
+                </div>
+                <div class="p-1">
+                    <label class="form-label text-white-50">Archivo</label>
+                    <input type="file" class="form-control" id="image-archive" required>
+                </div>
+                <div class="p-1">
+                    <label class="form-label text-white-50">Descripcion</label>
+                    <textarea class="form-control" style="height: 100px" id="image-description"></textarea>
+                </div>
+                <div class="pt-3 py-1 px-1 d-grid gap-3">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
+<script src="/jquery/jquery.js"></script>
+<script type="module" src="/views/scripts/fotos/saveImageScripts.js"></script>
+<script src="/bootstrap/bootstrap.bundle.min.js"></script>
+
 </html>

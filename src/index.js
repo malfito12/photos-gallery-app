@@ -2,10 +2,15 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
 const path=require('path')
-const { use } = require('./models/indexRouter')
+// const { use } = require('./models/indexRouter')
 
 
 //SETTING
+app.use(express.json({limit:'50mb'}));
+app.use(express.urlencoded({
+    limit:'50mb',
+    extended:true
+}))
 app.set('port', process.env.PORT || 3000)
 app.set('views',path.join(__dirname,'./views'))
 app.engine('html',require('ejs').renderFile)
