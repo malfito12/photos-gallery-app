@@ -35,4 +35,16 @@ controllers.imagesSave = async (req, res) => {
     }
 
 }
+
+//------------------DELETE-------------------------
+controllers.deleteImage=async(req,res)=>{
+    const id=req.body
+    try {
+        await IMAGE.findByIdAndDelete(id.id)
+        res.status(200).json({message:'imagen eliminada'})
+    } catch (error) {
+        console.log(error)
+        res.status(300).json({message:'error no se pudo eliminar la imagen'})
+    }
+}
 module.exports = controllers
