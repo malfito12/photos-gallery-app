@@ -34,6 +34,7 @@ $(() => {
             $.ajax({
                 url: '/get-images',
                 type: 'GET',
+                contentType: 'application/json',
                 success: (resp) => {
                     $('#progress').hide()
                     var template1 = ''
