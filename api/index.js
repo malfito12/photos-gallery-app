@@ -6,9 +6,9 @@ const path=require('path')
 
 
 //SETTING
-app.use(express.json({limit:'40mb'}));
+app.use(express.json({limit:'250mb'}));
 app.use(express.urlencoded({
-    limit:'40mb',
+    limit:'250mb',
     extended:true
 }))
 app.set('port', process.env.PORT || 3000)
