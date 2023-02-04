@@ -3,10 +3,14 @@ const express = require('express')
 const app = express()
 const path=require('path')
 // const { use } = require('./models/indexRouter')
-
+const fileUpload=require('express-fileupload')
 
 //SETTING
 app.use(express.json({limit:'250mb'}));
+app.use(fileUpload({
+    useTempFiles:true,
+    tempFileDir:'./uploads'
+}))
 app.use(express.urlencoded({
     limit:'250mb',
     extended:true

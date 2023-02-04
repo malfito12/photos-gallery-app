@@ -1,3 +1,4 @@
+
 $(() => {
     const userLogged = localStorage.getItem('token')
     if (!userLogged) {
@@ -37,6 +38,7 @@ $(() => {
                 contentType: 'application/json',
                 success: (resp) => {
                     $('#progress').hide()
+                    // console.log(resp)
                     var template1 = ''
                     for (var i = 0; i < resp.length; i++) {
                         template1 = template1 + `

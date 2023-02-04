@@ -1,6 +1,7 @@
 const express=require('express')
 const router=express.Router()
 const fotosControllers=require('../controllers/fotosController')
+const upload= require('../utils/multer')
 
 router.get('/fotos',fotosControllers.indexfotos)
 router.get('/registro-fotos',fotosControllers.registroFotos)
