@@ -28,6 +28,7 @@ controllers.imagesSave = async (req, res) => {
     // console.log(result)
     try {
         const result=await cloudinary.uploader.upload(req.files.image_archive.tempFilePath)
+        // const result=await cloudinary.uploader.upload(req.file.path)
         var image = new IMAGE({
             image_name:params.image_name,
             image_description:params.image_description,
