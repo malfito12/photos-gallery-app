@@ -9,8 +9,10 @@ const fileUpload=require('express-fileupload')
 app.use(express.json({limit:'250mb'}));
 app.use(fileUpload({
     useTempFiles:true,
-    tempFileDir:'./uploads'
+    tempFileDir:'uploads'
 }))
+// app.use('/static', express.static(path.join(__dirname, 'uploads')))
+// app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({
     limit:'250mb',
     extended:true
