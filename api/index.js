@@ -4,21 +4,23 @@ const app = express()
 const path = require('path')
 // const { use } = require('./models/indexRouter')
 const fileUpload = require('express-fileupload')
+const dotenv=require('dotenv')
+dotenv.config()
 
 //SETTING
 app.use(express.json({ limit: '250mb' }));
 app.use(fileUpload({
-    // useTempFiles:true,
-    // tempFileDir:'uploads'
+    useTempFiles:true,
+    tempFileDir:'uploads'
 
-    useTempFiles: true,
-    tempFileDir: path.join(__dirname, "tmp"),
-    abortOnLimit: true,
-    preserveExtension: true,
-    safeFileNames: true,
-    limits: { fieldSize: 50 * 2024 * 1024 },
+    // useTempFiles: true,
+    // tempFileDir: path.join(__dirname, "tmp"),
+    // abortOnLimit: true,
+    // preserveExtension: true,
+    // safeFileNames: true,
+    // limits: { fieldSize: 50 * 2024 * 1024 },
 }))
-// app.use('/static', express.static(path.join(__dirname, 'public')))
+// app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({
     limit: '250mb',
     extended: true

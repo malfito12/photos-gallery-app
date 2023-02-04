@@ -24,7 +24,7 @@ controllers.getImages=async(req,res)=>{
 controllers.imagesSave = async (req, res) => {
     const params = req.body
     // console.log(params)
-    // console.log(req.files)
+    // console.log(req)
     // console.log(result)
     try {
         const result=await cloudinary.uploader.upload(req.files.image_archive.tempFilePath)
